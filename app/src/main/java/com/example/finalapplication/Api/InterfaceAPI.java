@@ -1,6 +1,7 @@
 package com.example.finalapplication.Api;
 
 import com.example.finalapplication.Model.CandidateResponse;
+import com.example.finalapplication.Model.CandidateVoteResponse;
 import com.example.finalapplication.Model.LoginRequest;
 import com.example.finalapplication.Model.LoginResponse;
 import retrofit2.Call;
@@ -17,4 +18,8 @@ public interface InterfaceAPI {
     @Headers("Accept: application/json")
     @GET("candidate")
     Call<List<CandidateResponse>> getCandidate(@Header("Authorization") String authorization);
+
+    @Headers("Accept: application/json")
+    @GET("candidate/{candidateId}/vote")
+    Call<CandidateVoteResponse> voteCandidate(@Header("Authorization") String authorization, @Path(value = "candidateId", encoded = true) String candidateId);
 }

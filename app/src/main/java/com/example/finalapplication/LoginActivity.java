@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                         edit.putString("AuthToken",saveToken);
                         edit.commit();
 
-                        startActivity(new Intent(LoginActivity.this, VotingActivity.class));
+                        startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                     }
                 }
                 Snackbar.make(constraint, "Incorrect user credentials", Snackbar.LENGTH_LONG).show();

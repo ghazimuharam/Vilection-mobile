@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.finalapplication.Api.InterfaceAPI;
 import com.example.finalapplication.Api.RetrofitClientInstance;
 import com.example.finalapplication.Model.LoginRequest;
@@ -21,15 +22,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
-//    EditText npmEditText, passwordEditText;
-//    Button signIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         final EditText npmEditText = (EditText) findViewById(R.id.editTextNPM);
-        final EditText passwordEditText = findViewById(R.id.editTextPassword);
+        final EditText passwordEditText = (EditText) findViewById(R.id.editTextPassword);
+
         Button signIn = findViewById(R.id.SignInButton);
 
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setPassword(password);
         login.setDeviceName("Android");
 
+        final ConstraintLayout constraint = findViewById(R.id.loginConstraintLayout);
         Call<LoginResponse> call = api.checkLogin(login);
 
         call.enqueue(new Callback<LoginResponse>() {
@@ -56,21 +58,24 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
                     if(response.body().getStatus().equalsIgnoreCase("success")){
-
                         // Add token to shared preferences
                         SharedPreferences prefs;
                         SharedPreferences.Editor edit;
-                        prefs=LoginActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                        prefs=LoginActivity.this.getSharedPreferences("API-KEY", Context.MODE_PRIVATE);
                         edit=prefs.edit();
                         String saveToken = response.body().getToken();
                         edit.putString("AuthToken",saveToken);
                         edit.commit();
+
+                        startActivity(new Intent(LoginActivity.this, VotingActivity.class));
                     }
                 }
+                Snackbar.make(constraint, "Incorrect user credentials", Snackbar.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Snackbar.make(constraint, "Error connecting to server", Snackbar.LENGTH_LONG).show();
                 Log.e("TAG", t.toString());
                 t.printStackTrace();
             }

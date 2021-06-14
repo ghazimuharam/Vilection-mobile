@@ -15,11 +15,12 @@
     <string name="nomor_induk_mahasiswa">Nomor Induk Mahasiswa</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
-
+    
     <string name="title">VILECTION</string>
     <string name="voting">Pilih tombol dibawah untuk menuju halaman voting</string>
     <string name="beginVoting">BEGIN VOTING</string>
     <string name="profile">Profile</string>
     <string name="textProfile">Pilih tombol dibawah untuk menuju halaman profile</string>
     <string name="logout">Logout</string>
+    <string name="selamat_datang_halaman_voting">Selamat datang di Vilection \n Pilih calon yang anda inginkan</string>
 </resources>

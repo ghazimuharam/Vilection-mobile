@@ -79,7 +79,7 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.Cand
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        context.startActivity(new Intent((Activity) context, MainActivity.class));
+                                        context.startActivity(new Intent((Activity) context, DashboardActivity.class));
                                         ((Activity) context).finish();
                                     }
                                 },2000);
@@ -89,7 +89,7 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.Cand
                                 handler.postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
-                                        context.startActivity(new Intent((Activity) context, MainActivity.class));
+                                        context.startActivity(new Intent((Activity) context, DashboardActivity.class));
                                         ((Activity) context).finish();
                                     }
                                 },2000);

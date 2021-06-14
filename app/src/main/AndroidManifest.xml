@@ -27,12 +27,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".VotingActivity"
+            android:parentActivityName=".DashboardActivity"
             android:label="Voting"
             android:theme="@style/AppTheme.afterLogin" />
         <activity
             android:name=".DashboardActivity"
             android:theme="@style/AppTheme.afterLogin" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:parentActivityName=".DashboardActivity"
+            android:theme="@style/AppTheme.afterLogin"
+            android:label="Profile"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

@@ -48,7 +48,7 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/dataConstraint"
+                    android:id="@+id/userDataConstraint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="42dp"
@@ -117,10 +117,12 @@
 
 
                     <TextView
-                        android:id="@+id/userStatus"
+                        android:id="@+id/userStatusTextView"
                         android:layout_width="296dp"
                         android:layout_height="100dp"
                         android:text="TextView"
+                        android:textSize="30dp"
+                        style="bold"
                         android:gravity="center"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

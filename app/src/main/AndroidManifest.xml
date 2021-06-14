@@ -29,7 +29,9 @@
             android:name=".VotingActivity"
             android:label="Voting"
             android:theme="@style/AppTheme.afterLogin" />
-        <activity android:name=".DashboardActivity" />
+        <activity
+            android:name=".DashboardActivity"
+            android:theme="@style/AppTheme.afterLogin" />
         <activity android:name=".ProfileActivity"></activity>
         <activity
             android:name=".MainActivity"

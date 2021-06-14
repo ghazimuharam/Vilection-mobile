@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
                 if(token.isEmpty()){
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 }else{
-                    startActivity(new Intent(SplashActivity.this, VotingActivity.class));
+                    startActivity(new Intent(SplashActivity.this, DashboardActivity.class));
                 }
 
                 // close splash activity
